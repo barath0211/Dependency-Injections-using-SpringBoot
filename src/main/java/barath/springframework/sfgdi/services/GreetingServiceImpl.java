@@ -3,6 +3,6 @@ package barath.springframework.sfgdi.services;
 public class GreetingServiceImpl implements GreetingService {
     @Override
     public String sayGreeting() {
-        return null;
+        return "Hello World";
     }
 }
