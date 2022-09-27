@@ -23,13 +23,13 @@ String greeting = myController.sayHello();
 		PropertyInjectedController propertyInjectedController = (PropertyInjectedController) ctx.getBean("propertyInjectedController");
 		System.out.println(propertyInjectedController.getGreeting());
 
-//		System.out.println("----------- Setter");
-//		SetterInjectedController setterInjectedController = (SetterInjectedController) ctx.getBean("setterInjectedController");
-//		System.out.println(setterInjectedController.getGreeting());
+		System.out.println("----------- Setter");
+		SetterInjectedController setterInjectedController = (SetterInjectedController) ctx.getBean("setterInjectedController");
+		System.out.println(setterInjectedController.getGreeting());
 
-//		System.out.println("------Constructor");
-//		ConstructorInjectedController constructorInjectedController = (ConstructorInjectedController) ctx.getBean("constructorInjectedController");
-//		System.out.println(constructorInjectedController.getGreeting());
+		System.out.println("------Constructor");
+		ConstructorInjectedController constructorInjectedController = (ConstructorInjectedController) ctx.getBean("constructorInjectedController");
+		System.out.println(constructorInjectedController.getGreeting());
 	}
 
 }

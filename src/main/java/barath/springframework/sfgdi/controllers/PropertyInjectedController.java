@@ -2,14 +2,16 @@ package barath.springframework.sfgdi.controllers;
 
 import barath.springframework.sfgdi.services.GreetingService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 
-@Controller
-public class PropertyInjectedController {
+    @Controller
+    public class PropertyInjectedController {
+@Qualifier("propertyGreetingService")
+        @Autowired
+        public GreetingService greetingService;
 
-    public GreetingService greetingService;
-    @Autowired
-    public String getGreeting() {
-        return greetingService.sayGreeting();
+        public String getGreeting() {
+            return greetingService.sayGreeting();
+        }
     }
-}
