@@ -1,9 +1,6 @@
 package barath.springframework.sfgdi;
 
-import barath.springframework.sfgdi.controllers.ConstructorInjectedController;
-import barath.springframework.sfgdi.controllers.MyController;
-import barath.springframework.sfgdi.controllers.PropertyInjectedController;
-import barath.springframework.sfgdi.controllers.SetterInjectedController;
+import barath.springframework.sfgdi.controllers.*;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -13,6 +10,9 @@ public class SfgDiApplication {
 
 	public static void main(String[] args) {
 		ApplicationContext ctx = SpringApplication.run(SfgDiApplication.class, args);
+
+		I18nController i18nController = (I18nController) ctx.getBean("i18nController");
+		System.out.println(i18nController.sayHello());
 
 		MyController myController = (MyController)  ctx.getBean("myController");
 		System.out.println("----------Primary Bean");
@@ -30,5 +30,4 @@ public class SfgDiApplication {
 		ConstructorInjectedController constructorInjectedController = (ConstructorInjectedController) ctx.getBean("constructorInjectedController");
 		System.out.println(constructorInjectedController.getGreeting());
 	}
-
 }
