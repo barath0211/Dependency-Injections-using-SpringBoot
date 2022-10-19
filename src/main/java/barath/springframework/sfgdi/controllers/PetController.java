@@ -1,6 +1,6 @@
 package barath.springframework.sfgdi.controllers;
 
-import barath.springframework.sfgdi.services.PetService;
+import com.springframework.pets.PetService;
 import org.springframework.stereotype.Controller;
 
 @Controller
