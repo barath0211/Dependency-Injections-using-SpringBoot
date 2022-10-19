@@ -2,11 +2,12 @@ package barath.springframework.sfgdi.services;
 
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
-@Profile("H")
-@Service("i18nService")
-public class I18nHindiService implements  GreetingService{
+
+@Service
+@Profile("cat")
+public class CatPetService implements PetService {
     @Override
-    public String sayGreeting() {
-        return "Namaste Duniya - H";
+    public String getPetType() {
+        return "Cats Are the Best!";
     }
 }
