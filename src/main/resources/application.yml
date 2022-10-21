@@ -1,7 +1,17 @@
 spring:
   profiles:
-    active: dog,EN,qa
+    active:
+      -   dog
+      -   EN
+      -   dev
 barath :
       username: YmlUserName
       password: YmlPassword
       jdbcurl: YmlUrl
+---
+spring:
+    profiles: prod
+barath:
+    username: YmlProdUserName
+    password: YmlProdPassword
+    jdbcurl: YmlProdUrl
