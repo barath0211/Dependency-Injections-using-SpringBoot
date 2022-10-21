@@ -1,6 +1,6 @@
 spring:
   profiles:
-    active: dog,EN
+    active: dog,EN,qa
 barath :
       username: YmlUserName
       password: YmlPassword
