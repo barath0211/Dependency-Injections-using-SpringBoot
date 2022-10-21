@@ -8,19 +8,20 @@ import barath.springframework.sfgdi.repositories.EnglishGreetingRepository;
 import barath.springframework.sfgdi.repositories.EnglishGreetingRepositoryImpl;
 import barath.springframework.sfgdi.services.*;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.*;
 
-
+@EnableConfigurationProperties(barathConstructorConfig.class)
 @ImportResource("classpath:bsf-config.xml")
 @Configuration
 public class GreetingServiceConfig {
 
     @Bean
-    FakeDataSource fakeDataSource(BarathConfiguration barathConfiguration) {
+    FakeDataSource fakeDataSource(barathConstructorConfig barathConstructorConfig) {
         FakeDataSource fakeDataSource = new FakeDataSource();
-        fakeDataSource.setUsername(barathConfiguration.getUsername());
-        fakeDataSource.setPassword(barathConfiguration.getPassword());
-        fakeDataSource.setJdbcurl(barathConfiguration.getJdbcurl());
+        fakeDataSource.setUsername(barathConstructorConfig.getUsername());
+        fakeDataSource.setPassword(barathConstructorConfig.getPassword());
+        fakeDataSource.setJdbcurl(barathConstructorConfig.getJdbcurl());
 
 
         return fakeDataSource;

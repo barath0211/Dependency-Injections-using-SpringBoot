@@ -1,6 +1,7 @@
 package barath.springframework.sfgdi;
 
 import barath.springframework.sfgdi.config.BarathConfiguration;
+import barath.springframework.sfgdi.config.barathConstructorConfig;
 import barath.springframework.sfgdi.controllers.*;
 import barath.springframework.sfgdi.datasource.FakeDataSource;
 import barath.springframework.sfgdi.services.PrototypeBean;
@@ -64,6 +65,12 @@ public class SfgDiApplication {
 		System.out.println(barathConfiguration.getUsername());
 		System.out.println(barathConfiguration.getPassword());
 		System.out.println(barathConfiguration.getJdbcurl());
+
+		System.out.println("---------Constructor Binding");
+		barathConstructorConfig barathConstructorConfig = ctx.getBean(barath.springframework.sfgdi.config.barathConstructorConfig.class);
+		System.out.println(barathConstructorConfig.getUsername());
+		System.out.println(barathConstructorConfig.getPassword());
+		System.out.println(barathConstructorConfig.getJdbcurl());
 
 	}
 
