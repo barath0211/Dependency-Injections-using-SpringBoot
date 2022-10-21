@@ -1,15 +1,33 @@
 package barath.springframework.sfgdi.config;
 
+
+import com.springframework.pets.PetService;
+import com.springframework.pets.PetServiceFactory;
+import barath.springframework.sfgdi.datasource.FakeDataSource;
 import barath.springframework.sfgdi.repositories.EnglishGreetingRepository;
 import barath.springframework.sfgdi.repositories.EnglishGreetingRepositoryImpl;
 import barath.springframework.sfgdi.services.*;
-import com.springframework.pets.PetService;
-import com.springframework.pets.PetServiceFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.*;
 
+@PropertySource("classpath:datasource.properties")
 @ImportResource("classpath:bsf-config.xml")
 @Configuration
 public class GreetingServiceConfig {
+
+    @Bean
+    FakeDataSource fakeDataSource(@Value("${barath.username}")String username,
+                                  @Value("${barath.password}")String password,
+                                  @Value("${barath.jdbcurl}")String jdbcurl) {
+        FakeDataSource fakeDataSource = new FakeDataSource();
+        fakeDataSource.setUsername(username);
+        fakeDataSource.setPassword(jdbcurl);
+        fakeDataSource.setJdbcurl(password);
+
+
+        return fakeDataSource;
+    }
+
     @Bean
     PetServiceFactory petServiceFactory(){
         return new PetServiceFactory();
