@@ -1,5 +1,6 @@
 package barath.springframework.sfgdi;
 
+import barath.springframework.sfgdi.config.BarathConfiguration;
 import barath.springframework.sfgdi.controllers.*;
 import barath.springframework.sfgdi.datasource.FakeDataSource;
 import barath.springframework.sfgdi.services.PrototypeBean;
@@ -52,11 +53,17 @@ public class SfgDiApplication {
 		PrototypeBean prototypeBean2 = ctx.getBean(PrototypeBean.class);
 		System.out.println(prototypeBean2.getMyScope());
 
-
+		System.out.println("------Fake Data Source");
 		FakeDataSource fakeDataSource = ctx.getBean(FakeDataSource.class);
 		System.out.println(fakeDataSource.getUsername());
 		System.out.println(fakeDataSource.getPassword());
 		System.out.println(fakeDataSource.getJdbcurl());
+
+		System.out.println("--------Config Props Bean");
+		BarathConfiguration barathConfiguration = ctx.getBean(BarathConfiguration.class);
+		System.out.println(barathConfiguration.getUsername());
+		System.out.println(barathConfiguration.getPassword());
+		System.out.println(barathConfiguration.getJdbcurl());
 
 	}
 

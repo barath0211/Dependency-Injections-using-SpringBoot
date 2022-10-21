@@ -16,13 +16,11 @@ import org.springframework.context.annotation.*;
 public class GreetingServiceConfig {
 
     @Bean
-    FakeDataSource fakeDataSource(@Value("${barath.username}")String username,
-                                  @Value("${barath.password}")String password,
-                                  @Value("${barath.jdbcurl}")String jdbcurl) {
+    FakeDataSource fakeDataSource(BarathConfiguration barathConfiguration) {
         FakeDataSource fakeDataSource = new FakeDataSource();
-        fakeDataSource.setUsername(username);
-        fakeDataSource.setPassword(jdbcurl);
-        fakeDataSource.setJdbcurl(password);
+        fakeDataSource.setUsername(barathConfiguration.getUsername());
+        fakeDataSource.setPassword(barathConfiguration.getPassword());
+        fakeDataSource.setJdbcurl(barathConfiguration.getJdbcurl());
 
 
         return fakeDataSource;
